@@ -13,13 +13,15 @@ app.get("/roll", (req, res) => {
 // Endpoint 2: obtener el último roll sin lanzar
 app.get("/getRoll", (req, res) => {
   if (lastRoll === null) {
-    return res.json({ result: "Aún no se ha lanzado el dado" });
+    return res.send("Aún no se ha lanzado el dado");
   }
-  res.json({ result: lastRoll.toString() });
+  res.send(lastRoll.toString()); // <- texto plano, ej. "17"
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`API corriendo en http://0.0.0.0:${PORT}`);
+  console.log(`latest`);
 });
+
 
