@@ -1,8 +1,6 @@
 import express from "express";
 
 const app = express();
-
-// Variable global donde guardamos el último roll
 let lastRoll = null;
 
 // Endpoint 1: tirar el dado y actualizar lastRoll
@@ -20,6 +18,7 @@ app.get("/getRoll", (req, res) => {
   res.json({ result: lastRoll });
 });
 
-app.listen(3000, () => {
-  console.log("API corriendo en http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`API corriendo en http://0.0.0.0:${PORT}`);
 });
