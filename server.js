@@ -15,7 +15,8 @@ app.get("/getRoll", (req, res) => {
   if (lastRoll === null) {
     return res.json(["Aún no se ha lanzado el dado"]);
   }
-  res.json([lastRoll]);
+  res.json([ lastRoll.toString() ]);
+
 });
 
 
@@ -24,6 +25,7 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`API corriendo en http://0.0.0.0:${PORT}`);
 
 });
+
 
 
 
